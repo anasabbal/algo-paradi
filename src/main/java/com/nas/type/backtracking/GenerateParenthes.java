@@ -27,6 +27,21 @@ public class GenerateParenthes {
      * @param result the list to store all valid combinations
      */
     private void backtrack(String current, int open, int close, int max, List<String> result){
-
+        if (current.length() == 2 * max) {
+            result.add(current);
+            return;
+        }
+        if(open < max){
+            backtrack(current + "(", open + 1, close, max, result);
+        }
+        if (close < open) {
+            backtrack(current + ")", open, close + 1, max, result);
+        }
+    }
+    public static void main(String[] args) {
+        GenerateParenthes pg = new GenerateParenthes();
+        System.out.println(pg.generateParenthesis(3));
+        System.out.println(pg.generateParenthesis(1));
+        System.out.println(pg.generateParenthesis(4));
     }
 }
