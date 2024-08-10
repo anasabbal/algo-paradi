@@ -38,6 +38,7 @@ public class GenerateParenthes {
             backtrack(current + ")", open, close + 1, max, result);
         }
     }
+    
     public static void main(String[] args) {
         GenerateParenthes pg = new GenerateParenthes();
         System.out.println(pg.generateParenthesis(3));
