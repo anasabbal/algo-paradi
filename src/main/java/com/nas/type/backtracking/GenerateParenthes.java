@@ -19,7 +19,6 @@ public class GenerateParenthes {
 
     /**
      * Uses backtracking to generate well-formed parentheses combinations.
-     *
      * @param current the current combination of parentheses being built
      * @param open the number of opening parentheses used so far
      * @param close the number of closing parentheses used so far

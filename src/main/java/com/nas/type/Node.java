@@ -1,4 +1,4 @@
 package com.nas.type;
 
-public class Main {
+public class Node {
 }
