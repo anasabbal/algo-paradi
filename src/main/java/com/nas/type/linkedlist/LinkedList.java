@@ -60,15 +60,15 @@ public class LinkedList<T> {
         }
     }
 
-    public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.printList();
-    }
     public T get(int index){
-
+        if(head == null){
+            return null;
+        }
+        Node current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.data;
     }
     public int size() {
         return size;
@@ -78,4 +78,18 @@ public class LinkedList<T> {
         return size == 0;
     }
 
+    public static void main(String[] args) {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.printList();
+
+        System.out.println("Element at index 1: " + list.get(1));
+
+        list.remove(2);
+        list.printList();
+
+        System.out.println("List size: " + list.size());
+    }
 }
