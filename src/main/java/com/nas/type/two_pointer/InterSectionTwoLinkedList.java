@@ -10,27 +10,36 @@ public class InterSectionTwoLinkedList {
             next = null;
         }
     }
+
+    /**
+     * Finds the intersection node of two singly linked lists.
+     *
+     * @param headA the head of the first linked list
+     * @param headB the head of the second linked list
+     * @return the node at which the intersection of the two linked lists begins, or null if there is no intersection
+     */
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        if(headA == null && headB == null){
-            return null;
+        if (headA == null && headB == null) { // check if both lists are null
+            return null; // if both are null, return null as there is no intersection
         }
-        ListNode pointerA = headA;
-        ListNode pointerB = headB;
+        ListNode pointerA = headA; // initialize pointerA to the head of the first list
+        ListNode pointerB = headB; // initialize pointerB to the head of the second list
 
-        while (pointerA != pointerB) {
-            if (pointerA == null) {
-                pointerA = headB;
+        while (pointerA != pointerB) { // loop until the two pointers meet
+            if (pointerA == null) { // check if pointerA has reached the end of the first list
+                pointerA = headB; // switch pointerA to the head of the second list
             } else {
-                pointerA = pointerA.next;
+                pointerA = pointerA.next; // move pointerA to the next node
             }
 
-            if (pointerB == null) {
-                pointerB = headA;
+            if (pointerB == null) { // check if pointerB has reached the end of the second list
+                pointerB = headA; // switch pointerB to the head of the first list
             } else {
-                pointerB = pointerB.next;
+                pointerB = pointerB.next; // move pointerB to the next node
             }
         }
-        return pointerA;
+
+        return pointerA; // return the intersection node or null if no intersection
     }
     public static void main(String[] args) {
         ListNode intersectNode = new ListNode(8);
